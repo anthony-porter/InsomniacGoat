@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View"/>
+        <import type="java.lang.Integer"/>
+        <variable name="model"
+                  type="com.apsoftware.insomniacgoat.model.StatLine"
+        />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginBottom="8dp"
+    android:foregroundGravity="center">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="match_parent"
+                  android:id="@+id/view_holder_rank_textview"
+                  app:layout_constraintStart_toStartOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  android:textSize="38sp"
+                  android:paddingLeft="10dp"
+                  android:paddingRight="10dp"
+                  android:text="@{Integer.toString(model.playerRank)}"
+                  tools:text="1" android:gravity="center"/>
+
+        <TextView android:layout_width="0dp" android:layout_height="0dp"
+                  android:id="@+id/view_holder_player_name_textview"
+                  app:layout_constraintStart_toEndOf="@id/view_holder_rank_textview"
+                  app:layout_constraintEnd_toEndOf="parent"
+                  app:layout_constraintTop_toTopOf="parent"
+                  app:layout_constraintBottom_toTopOf="@id/view_holder_pts_textview"
+                  app:layout_constraintVertical_chainStyle="packed"
+                  android:textStyle="bold"
+                  android:textSize="18sp"
+                  android:text="@{model.playerName}"
+                  tools:text="LeBron James" android:gravity="bottom"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="0dp"
+                  android:id="@+id/view_holder_pts_textview"
+                  app:layout_constraintStart_toEndOf="@+id/view_holder_rank_textview"
+                  app:layout_constraintTop_toBottomOf="@+id/view_holder_player_name_textview"
+                  app:layout_constraintBottom_toBottomOf="@+id/view_holder_rank_textview"
+                  android:padding="2dp"
+                  android:text="@{@string/points(model.points)}"
+                  tools:text="PTS: 27.2" android:gravity="top"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="0dp"
+                  android:id="@+id/view_holder_reb_textview"
+                  app:layout_constraintStart_toEndOf="@+id/view_holder_pts_textview"
+                  app:layout_constraintEnd_toStartOf="@id/view_holder_ast_textview"
+                  app:layout_constraintBottom_toBottomOf="@+id/view_holder_pts_textview"
+                  app:layout_constraintTop_toTopOf="@+id/view_holder_pts_textview"
+                  android:padding="2dp"
+                  android:text="@{@string/rebounds(model.rebounds)}"
+                  tools:text="REB: 27.2" android:gravity="top"/>
+
+        <TextView android:layout_width="wrap_content" android:layout_height="0dp"
+                  android:id="@+id/view_holder_ast_textview"
+                  app:layout_constraintBottom_toBottomOf="@+id/view_holder_reb_textview"
+                  app:layout_constraintTop_toTopOf="@+id/view_holder_reb_textview"
+                  app:layout_constraintEnd_toEndOf="@+id/view_holder_player_name_textview"
+                  android:padding="2dp"
+                  android:text="@{@string/assists(model.assists)}"
+                  tools:text="AST: 27.2" android:gravity="top"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
