@@ -5,12 +5,18 @@ import com.apsoftware.insomniacgoat.model.StatLine
 import java.util.*
 import android.os.Handler
 import com.apsoftware.insomniacgoat.model.DataReadyCallback
+import io.reactivex.Observable
+import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
-class MockDataProviderCallback: StatDataProviderCallback {
+class MockDataProvider: StatDataProviderCallback {
 
     override fun getStats(dataReadyCallback: DataReadyCallback){
         Handler().postDelayed({dataReadyCallback.onDataReady(setupMockStatList())}, 1500)
+    }
+
+    fun getStats(): Observable<List<StatLine>> {
+        return Observable.just(setupMockStatList()).delay(2, TimeUnit.SECONDS)
     }
 
     fun setupMockStatList(): List<StatLine> {

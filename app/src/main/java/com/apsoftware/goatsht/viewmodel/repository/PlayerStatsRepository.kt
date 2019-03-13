@@ -3,16 +3,16 @@ package com.apsoftware.insomniacgoat.viewmodel.repository
 import android.content.Context
 import com.apsoftware.insomniacgoat.model.DataReadyCallback
 import com.apsoftware.insomniacgoat.model.StatLine
-import com.apsoftware.insomniacgoat.model.database.LocalDataProviderCallback
+import com.apsoftware.insomniacgoat.model.database.LocalDataProvider
 import com.apsoftware.insomniacgoat.model.network.ConnectivityManager
-import com.apsoftware.insomniacgoat.model.network.RemoteDataProviderCallback
-import com.apsoftware.insomniacgoat.model.simple_local_storage.MockDataProviderCallback
+import com.apsoftware.insomniacgoat.model.network.RemoteDataProvider
+import com.apsoftware.insomniacgoat.model.simple_local_storage.MockDataProvider
 
 class PlayerStatsRepository(context: Context) {
 
-    val localDataProvider: LocalDataProviderCallback = LocalDataProviderCallback()
-    val remoteDataProvider: RemoteDataProviderCallback = RemoteDataProviderCallback()
-    val mockDataProvider: MockDataProviderCallback = MockDataProviderCallback()
+    val localDataProvider: LocalDataProvider = LocalDataProvider()
+    val remoteDataProvider: RemoteDataProvider = RemoteDataProvider()
+    val mockDataProvider: MockDataProvider = MockDataProvider()
     val connectivityManager: ConnectivityManager = ConnectivityManager(context)
     val mockDataEnabled = true
 
