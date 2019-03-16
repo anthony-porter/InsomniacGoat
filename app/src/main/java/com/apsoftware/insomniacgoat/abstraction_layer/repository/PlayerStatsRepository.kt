@@ -36,13 +36,12 @@ class PlayerStatsRepository(context: Context) {
                 }
             });
         } else {
-            if (connectivityManager.isConnectedToInternet?.let { it } ?: false) {
-                remoteDataProvider.getStats(object : DataReadyCallback {
-                    override fun onDataReady(data: List<StatLine>) {
-                        localDataProvider.updateData(data)
-                        onRepositoryReadyCallback.onRepositoryReady(data)
-                    }
-                })
+            if (connectivityManager.isConnectedToInternet?.let { it } == true) {
+                remoteDataProvider.getStats().flatMap {
+                    return@flatMap localDataProvider.updateData(it)
+                        .toSingleDefault(it)
+                        .toObservable()
+                }
 
             }
         }

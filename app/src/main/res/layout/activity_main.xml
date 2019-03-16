@@ -6,7 +6,7 @@
     <data>
         <variable
                 name="viewModel"
-                type="com.apsoftware.insomniacgoat.viewmodel.StatsViewModel"
+                type="com.apsoftware.insomniacgoat.abstraction_layer.viewmodel.StatsViewModel"
         />
     </data>
 

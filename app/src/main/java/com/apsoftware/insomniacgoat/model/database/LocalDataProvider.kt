@@ -3,8 +3,10 @@ package com.apsoftware.insomniacgoat.model.database
 import com.apsoftware.insomniacgoat.model.DataReadyCallback
 import com.apsoftware.insomniacgoat.model.StatDataProviderCallback
 import com.apsoftware.insomniacgoat.model.StatLine
-import com.apsoftware.insomniacgoat.viewmodel.repository.PlayerStatsRepository
+import com.apsoftware.insomniacgoat.abstraction_layer.repository.PlayerStatsRepository
+import io.reactivex.Completable
 import io.reactivex.Observable
+import io.reactivex.Single
 import java.util.concurrent.TimeUnit
 
 class LocalDataProvider: StatDataProviderCallback, StatDataPersistence {
@@ -22,7 +24,7 @@ class LocalDataProvider: StatDataProviderCallback, StatDataPersistence {
         return ArrayList<StatLine>()
     }
 
-    override fun updateData(data: List<StatLine>) {
-
+    override fun updateData(data: List<StatLine>): Completable {
+        return Single.just(1).delay(1, TimeUnit.SECONDS).ignoreElement()
     }
 }

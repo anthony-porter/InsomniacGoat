@@ -8,7 +8,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.apsoftware.insomniacgoat.R
 import com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
-import com.apsoftware.insomniacgoat.viewmodel.StatsViewModel
+import com.apsoftware.insomniacgoat.abstraction_layer.viewmodel.StatsViewModel
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClick
         binding.playerStatRecyclerView.adapter = playerStatsRecyvlerViewAdapter
         viewModel.statList.observe(
             this,
-            Observer { it ->
+            Observer {
                 it?.let {
                     playerStatsRecyvlerViewAdapter.replaceData(it)
                 }
