@@ -20,6 +20,10 @@ class LocalDataProvider: StatDataProviderCallback, StatDataPersistence {
         return Observable.just(retrieveDataViaRoomDb()).delay(2, TimeUnit.SECONDS)
     }
 
+    fun getTopScoredPlayers(): Observable<List<StatLine>> {
+        return Observable.just(retrieveDataViaRoomDb()).delay(2, TimeUnit.SECONDS)
+    }
+
     fun retrieveDataViaRoomDb(): List<StatLine> {
         return ArrayList<StatLine>()
     }
