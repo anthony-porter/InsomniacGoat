@@ -12,13 +12,20 @@ class RemoteDataProvider: StatDataProviderCallback {
         Handler().postDelayed({dataReadyCallback.onDataReady(makeRetroFitCall())}, 1500)
     }
 
-
     fun getStats(): Observable<List<StatLine>> {
         return Observable.just(retrieveDataViaRxjava()).delay(2, TimeUnit.SECONDS)
     }
 
+    fun getPlayerId(firstName: String, lastName: String): Int {
+        return retrievePlayerIdViaRxJava(firstName, lastName)
+    }
+
     fun retrieveDataViaRxjava(): List<StatLine> {
         return ArrayList<StatLine>()
+    }
+
+    fun retrievePlayerIdViaRxJava(firstName: String, lastName: String): Int {
+        return -1;
     }
 
     fun makeRetroFitCall(): List<StatLine> {
