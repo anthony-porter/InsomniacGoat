@@ -1,5 +1,5 @@
 package com.apsoftware.insomniacgoat.model
 
-interface StatDataProviderCallback {
+interface StatDataProvider {
     fun getStats(dataReadyCallback: DataReadyCallback)
 }

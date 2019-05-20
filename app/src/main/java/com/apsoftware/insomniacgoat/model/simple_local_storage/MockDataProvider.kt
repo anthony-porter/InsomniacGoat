@@ -1,6 +1,6 @@
 package com.apsoftware.insomniacgoat.model.simple_local_storage
 
-import com.apsoftware.insomniacgoat.model.StatDataProviderCallback
+import com.apsoftware.insomniacgoat.model.StatDataProvider
 import com.apsoftware.insomniacgoat.model.StatLine
 import java.util.*
 import android.os.Handler
@@ -9,7 +9,7 @@ import io.reactivex.Observable
 import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
-class MockDataProvider: StatDataProviderCallback {
+class MockDataProvider: StatDataProvider {
 
     override fun getStats(dataReadyCallback: DataReadyCallback){
         Handler().postDelayed({dataReadyCallback.onDataReady(setupMockStatList())}, 1500)
