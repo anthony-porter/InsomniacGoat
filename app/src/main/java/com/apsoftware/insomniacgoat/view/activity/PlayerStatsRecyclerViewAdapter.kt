@@ -10,7 +10,7 @@ import com.apsoftware.insomniacgoat.model.StatLine
 class PlayerStatsRecyclerViewAdapter(private var statLines: List<StatLine>, private var
 onClickListener: OnClickListener): RecyclerView.Adapter<BasicStatViewHolder>() {
     /**
-     * Called when RecyclerView needs a new [ViewHolder] of the given type to represent
+     * Called when RecyclerView needs a new [BasicStatViewHolder] of the given type to represent
      * an item.
      *
      *
@@ -52,7 +52,7 @@ onClickListener: OnClickListener): RecyclerView.Adapter<BasicStatViewHolder>() {
 
     /**
      * Called by RecyclerView to display the data at the specified position. This method should
-     * update the contents of the [ViewHolder.itemView] to reflect the item at the given
+     * update the contents of the [BasicStatViewHolder.itemView] to reflect the item at the given
      * position.
      *
      *
@@ -61,7 +61,7 @@ onClickListener: OnClickListener): RecyclerView.Adapter<BasicStatViewHolder>() {
      * invalidated or the new position cannot be determined. For this reason, you should only
      * use the `position` parameter while acquiring the related data item inside
      * this method and should not keep a copy of it. If you need the position of an item later
-     * on (e.g. in a click listener), use [ViewHolder.getAdapterPosition] which will
+     * on (e.g. in a click listener), use [BasicStatViewHolder.getAdapterPosition] which will
      * have the updated adapter position.
      *
      * Override [.onBindViewHolder] instead if Adapter can
