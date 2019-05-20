@@ -6,6 +6,4 @@
     <string name="rebounds">REB: %.2f</string>
     <string name="assists">AST: %.2f</string>
     <string name="next">Next</string>
-    <string name="personal_goat_selection">Personal GOAT selection</string>
-    <string name="statistical_goat_selection">Statistical GOAT selection</string>
 </resources>

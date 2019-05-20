@@ -1,5 +1,6 @@
 package com.apsoftware.insomniacgoat.model.database.dao
 
+import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
@@ -8,6 +9,7 @@ import com.apsoftware.insomniacgoat.model.database.entiy.PlayerSeasonStatLine
 /**
  * Created by Anthony.Porter on 2019-05-19.
  */
+@Dao
 interface PlayerSeasonStatLineDao {
 
     @Insert

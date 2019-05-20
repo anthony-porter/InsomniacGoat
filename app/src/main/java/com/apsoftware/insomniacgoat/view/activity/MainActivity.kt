@@ -12,8 +12,8 @@ import com.apsoftware.insomniacgoat.abstraction_layer.viewmodel.StatsViewModel
 
 class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClickListener {
 
-    lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
-    lateinit var viewModel: StatsViewModel
+    private lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
+    private lateinit var viewModel: StatsViewModel
     private val playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter = PlayerStatsRecyclerViewAdapter(arrayListOf(), this)
 
 

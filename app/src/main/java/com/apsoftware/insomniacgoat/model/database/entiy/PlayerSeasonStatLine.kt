@@ -18,7 +18,7 @@ import androidx.room.PrimaryKey
     )]
 )
 data class PlayerSeasonStatLine(
-    @PrimaryKey(autoGenerate = true) val ID: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "player_id") val playerId: Int,
     @ColumnInfo(name = "games_played") var GP: Int,
     @ColumnInfo(name = "minutes") var MINUTES: Double,

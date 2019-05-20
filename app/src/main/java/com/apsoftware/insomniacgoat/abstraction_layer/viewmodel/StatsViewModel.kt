@@ -15,7 +15,7 @@ import io.reactivex.observers.DisposableObserver
 import io.reactivex.schedulers.Schedulers
 
 class StatsViewModel(application: Application) : AndroidViewModel(application) {
-    var playerStatsRepository: PlayerStatsRepository = PlayerStatsRepository(getApplication())
+    private var playerStatsRepository: PlayerStatsRepository = PlayerStatsRepository(getApplication())
     val isLoading = ObservableField<Int>(GONE)
     val statList = MutableLiveData<List<StatLine>>()
 

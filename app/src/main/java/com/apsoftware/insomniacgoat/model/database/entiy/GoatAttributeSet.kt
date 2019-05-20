@@ -9,7 +9,7 @@ import androidx.room.PrimaryKey
  */
 @Entity
 data class GoatAttributeSet(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "attribute_name") val attributeName: String,
     var value: Int,
     var weight: Double

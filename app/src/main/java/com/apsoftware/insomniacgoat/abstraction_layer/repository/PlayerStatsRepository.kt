@@ -27,12 +27,10 @@ class PlayerStatsRepository(context: Context) {
      * // todo remove mock variable. This is bad design for testing
      */
     fun getPlayerData(): Observable<List<StatLine>> {
-        if(mockDataEnabled) {
-            return mockDataProvider.getStats()
-        } else if(connectivityManager.isConnectedToInternet?.let{ it } == true) {
-            return remoteDataProvider.getStats()
-        } else {
-            return localDataProvider.getStats()
+        return when {
+            mockDataEnabled -> mockDataProvider.getStats()
+            connectivityManager.isConnectedToInternet?.let{ it } == true -> remoteDataProvider.getStats()
+            else -> localDataProvider.getStats()
         }
     }
 
