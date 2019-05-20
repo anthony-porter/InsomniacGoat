@@ -1,7 +1,5 @@
 package com.apsoftware.insomniacgoat.model.network
 
-import android.os.Parcel
-import android.os.Parcelable
 import androidx.annotation.StringDef
 import com.apsoftware.insomniacgoat.model.network.LeagueType.Companion.ABA
 import com.apsoftware.insomniacgoat.model.network.LeagueType.Companion.NBA

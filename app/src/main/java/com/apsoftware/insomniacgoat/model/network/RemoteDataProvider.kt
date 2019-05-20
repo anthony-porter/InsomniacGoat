@@ -13,19 +13,19 @@ class RemoteDataProvider: StatDataProvider {
     }
 
     fun getStats(): Observable<List<StatLine>> {
-        return Observable.just(retrieveDataViaRxjava()).delay(2, TimeUnit.SECONDS)
+        return Observable.just(retrieveDataViaRxJava()).delay(2, TimeUnit.SECONDS)
     }
 
     fun getPlayerId(firstName: String, lastName: String): Int {
         return retrievePlayerIdViaRxJava(firstName, lastName)
     }
 
-    fun retrieveDataViaRxjava(): List<StatLine> {
+    fun retrieveDataViaRxJava(): List<StatLine> {
         return ArrayList<StatLine>()
     }
 
     fun retrievePlayerIdViaRxJava(firstName: String, lastName: String): Int {
-        return -1;
+        return -1
     }
 
     fun makeRetroFitCall(): List<StatLine> {

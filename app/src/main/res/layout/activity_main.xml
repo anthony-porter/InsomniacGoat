@@ -30,11 +30,13 @@
                 android:id="@+id/personal_goat_edit_text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:inputType="text"
                 app:layout_constraintTop_toBottomOf="@id/personal_goat_text_view"
                 app:layout_constraintStart_toStartOf="@id/personal_goat_text_view"
                 app:layout_constraintEnd_toEndOf="@id/personal_goat_text_view"
                 android:layout_marginTop="@dimen/small_margin"
                 android:gravity="center"
+                android:hint="@string/personal_goat_selection"
                 tools:text="LeBron James"/>
 
         <TextView
@@ -50,6 +52,7 @@
 
         <EditText
                 android:id="@+id/statistical_goat_edit_text"
+                android:inputType="text"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/statistical_goat_text_view"
@@ -57,6 +60,7 @@
                 app:layout_constraintEnd_toEndOf="@id/personal_goat_text_view"
                 android:layout_marginTop="@dimen/small_margin"
                 android:gravity="center"
+                android:hint="@string/statistical_goat_selection"
                 tools:text="LeBron James"/>
 
         <Button

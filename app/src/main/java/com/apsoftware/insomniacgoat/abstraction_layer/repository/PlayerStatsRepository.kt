@@ -1,7 +1,6 @@
 package com.apsoftware.insomniacgoat.abstraction_layer.repository
 
 import android.content.Context
-import com.apsoftware.insomniacgoat.model.DataReadyCallback
 import com.apsoftware.insomniacgoat.model.StatLine
 import com.apsoftware.insomniacgoat.model.database.LocalDataProvider
 import com.apsoftware.insomniacgoat.model.network.ConnectivityManager
@@ -39,27 +38,6 @@ class PlayerStatsRepository(context: Context) {
 
     fun getTopScoredPlayers(): Observable<List<StatLine>> {
         return localDataProvider.getTopScoredPlayers()
-    }
-
-    @Deprecated("No longer supported Callback interfaces will be removed", ReplaceWith("getPlayerData()"))
-    fun getPlayerData(onRepositoryReadyCallback: OnRepositoryReadyCallback) {
-        if(mockDataEnabled){
-            mockDataProvider.getStats(object : DataReadyCallback {
-                override fun onDataReady(data: List<StatLine>) {
-                    localDataProvider.updateData(data)
-                    onRepositoryReadyCallback.onRepositoryReady(data)
-                }
-            });
-        } else {
-            if (connectivityManager.isConnectedToInternet?.let { it } == true) {
-                remoteDataProvider.getStats().flatMap {
-                    return@flatMap localDataProvider.updateData(it)
-                        .toSingleDefault(it)
-                        .toObservable()
-                }
-
-            }
-        }
     }
 
     interface OnRepositoryReadyCallback {
