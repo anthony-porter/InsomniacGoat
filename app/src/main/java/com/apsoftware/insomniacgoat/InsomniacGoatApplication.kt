@@ -8,7 +8,7 @@ import com.apsoftware.insomniacgoat.model.database.StatsDatabase
  * Created by Anthony.Porter on 2019-05-19.
  */
 @Suppress("unused")
-class InsomniacGoatApplication: Application() {
+class InsomniacGoatApplication : Application() {
 
     companion object {
         lateinit var database: StatsDatabase
