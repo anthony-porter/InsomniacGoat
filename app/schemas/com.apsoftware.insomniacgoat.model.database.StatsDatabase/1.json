@@ -1,0 +1,283 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "a3339e1e6330162853f7a3e799624555",
+    "entities": [
+      {
+        "tableName": "Player",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `starting_year` INTEGER NOT NULL, `final_year` INTEGER NOT NULL, `rank` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "firstName",
+            "columnName": "first_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastName",
+            "columnName": "last_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "startingYear",
+            "columnName": "starting_year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "finalYear",
+            "columnName": "final_year",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rank",
+            "columnName": "rank",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "PlayerSeasonStatLine",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `player_id` INTEGER NOT NULL, `games_played` INTEGER NOT NULL, `minutes` REAL NOT NULL, `field_goals_made` REAL NOT NULL, `field_goals_attempted` REAL NOT NULL, `field_goal_percentage` REAL NOT NULL, `three_pointers_made` REAL NOT NULL, `three_pointers_attempted` REAL NOT NULL, `three_point_field_goal_percentage` REAL NOT NULL, `offensive_rebounds` REAL NOT NULL, `defensive_rebounds` REAL NOT NULL, `rebounds` REAL NOT NULL, `assists` REAL NOT NULL, `steals` REAL NOT NULL, `blocks` REAL NOT NULL, `turnovers` REAL NOT NULL, `personal_fouls` REAL NOT NULL, `points` REAL NOT NULL, `efficiency` REAL NOT NULL, `assist_turnover_ratio` REAL NOT NULL, `steal_turnover_ratio` REAL NOT NULL, `freethrows_made` REAL NOT NULL, `freethrows_attempted` REAL NOT NULL, `freethrow_percentage` REAL NOT NULL, `technical_fouls` REAL NOT NULL, FOREIGN KEY(`player_id`) REFERENCES `Player`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "playerId",
+            "columnName": "player_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "GP",
+            "columnName": "games_played",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "MINUTES",
+            "columnName": "minutes",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FGM",
+            "columnName": "field_goals_made",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FGA",
+            "columnName": "field_goals_attempted",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FG_PCT",
+            "columnName": "field_goal_percentage",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FG3M",
+            "columnName": "three_pointers_made",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FG3A",
+            "columnName": "three_pointers_attempted",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FG3_PCT",
+            "columnName": "three_point_field_goal_percentage",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "OREB",
+            "columnName": "offensive_rebounds",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "DREB",
+            "columnName": "defensive_rebounds",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "REB",
+            "columnName": "rebounds",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "AST",
+            "columnName": "assists",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "STL",
+            "columnName": "steals",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "BLK",
+            "columnName": "blocks",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TOV",
+            "columnName": "turnovers",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "PF",
+            "columnName": "personal_fouls",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "PTS",
+            "columnName": "points",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "EFF",
+            "columnName": "efficiency",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "AST_TOV",
+            "columnName": "assist_turnover_ratio",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "STL_TOV",
+            "columnName": "steal_turnover_ratio",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FTM",
+            "columnName": "freethrows_made",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FTA",
+            "columnName": "freethrows_attempted",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "FT_PCT",
+            "columnName": "freethrow_percentage",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "TF",
+            "columnName": "technical_fouls",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": [
+          {
+            "table": "Player",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "player_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "GoatAttributeSet",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `attribute_name` TEXT NOT NULL, `value` INTEGER NOT NULL, `weight` REAL NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attributeName",
+            "columnName": "attribute_name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "value",
+            "columnName": "value",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "weight",
+            "columnName": "weight",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a3339e1e6330162853f7a3e799624555\")"
+    ]
+  }
+}
