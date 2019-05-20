@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "a3339e1e6330162853f7a3e799624555",
+    "identityHash": "933b8c9af39d48dae9f2c50dfb5c501b",
     "entities": [
       {
         "tableName": "Player",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `starting_year` INTEGER NOT NULL, `final_year` INTEGER NOT NULL, `rank` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `first_name` TEXT NOT NULL, `last_name` TEXT NOT NULL, `starting_year` INTEGER NOT NULL, `final_year` INTEGER NOT NULL, `rank` INTEGER NOT NULL, `career_ppg` REAL NOT NULL, `career_apg` REAL NOT NULL, `career_rpg` REAL NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
             "fieldPath": "id",
@@ -42,6 +42,24 @@
             "fieldPath": "rank",
             "columnName": "rank",
             "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "careerPpg",
+            "columnName": "career_ppg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "careerApg",
+            "columnName": "career_apg",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "careerRpg",
+            "columnName": "career_rpg",
+            "affinity": "REAL",
             "notNull": true
           }
         ],
@@ -277,7 +295,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"a3339e1e6330162853f7a3e799624555\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"933b8c9af39d48dae9f2c50dfb5c501b\")"
     ]
   }
 }

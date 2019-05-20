@@ -14,7 +14,8 @@ class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClick
 
     private lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
     private lateinit var viewModel: StatsViewModel
-    private val playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter = PlayerStatsRecyclerViewAdapter(arrayListOf(), this)
+    private val playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter =
+        PlayerStatsRecyclerViewAdapter(arrayListOf(), this)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,7 +30,7 @@ class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClick
         binding.playerStatRecyclerView.adapter = playerStatsRecyclerViewAdapter
         viewModel.statList.observe(
             this,
-            Observer {
+            Observer { it ->
                 it?.let {
                     playerStatsRecyclerViewAdapter.replaceData(it)
                 }

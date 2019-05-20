@@ -81,9 +81,12 @@ annotation class Scopes {
         const val ROOKIES = "Rookies"
     }
 }
+
 @Retention(AnnotationRetention.SOURCE)
-@StringDef(GP, MINUTES, FGM, FGA, FG_PCT, FG3M, FG3A, FG3_PCT, OREB, DREB, REB, AST, STL, BLK, TOV, PF, PTS, EFF, AST_TOV,
-    STL_TOV, FTM, FTA, FT_PCT)
+@StringDef(
+    GP, MINUTES, FGM, FGA, FG_PCT, FG3M, FG3A, FG3_PCT, OREB, DREB, REB, AST, STL, BLK, TOV, PF, PTS, EFF, AST_TOV,
+    STL_TOV, FTM, FTA, FT_PCT
+)
 annotation class StatCategories {
     companion object {
         const val GP = "GP"

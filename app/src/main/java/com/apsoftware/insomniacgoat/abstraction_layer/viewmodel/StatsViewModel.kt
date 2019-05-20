@@ -5,54 +5,51 @@ import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.apsoftware.insomniacgoat.abstraction_layer.repository.PlayerStatsRepository
-import com.apsoftware.insomniacgoat.extension_functions.plusAssign
-import com.apsoftware.insomniacgoat.model.StatLine
-import io.reactivex.android.schedulers.AndroidSchedulers
+import com.apsoftware.insomniacgoat.model.database.entity.Player
 import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.observers.DisposableObserver
-import io.reactivex.schedulers.Schedulers
 
 class StatsViewModel(application: Application) : AndroidViewModel(application) {
     private var playerStatsRepository: PlayerStatsRepository = PlayerStatsRepository(getApplication())
     val isLoading = ObservableField<Int>(GONE)
-    val statList = MutableLiveData<List<StatLine>>()
+    private val _statList = MutableLiveData<List<Player>>()
+    val statList: LiveData<List<Player>>
+        get() = _statList
+
 
     private val compositeDisposable = CompositeDisposable()
 
     fun loadStats() {
         isLoading.set(VISIBLE)
-//        playerStatsRepository.getPlayerData(object : PlayerStatsRepository.OnRepositoryReadyCallback {
-//            override fun onRepositoryReady(data: List<StatLine>) {
-//                isLoading.set(GONE)
-//                statList.value = data
-//            }
-//        })
+        _statList.postValue((playerStatsRepository.getPlayerData().blockingFirst()))
+//        _statList.postValue((Flowable.fromIterable(playerStatsRepository.getPlayerData().blockingIterable())).blockingFirst())
+        isLoading.set(GONE)
     }
 
-    fun loadStatsViaRxJava() {
-        isLoading.set(VISIBLE)
-        compositeDisposable += playerStatsRepository.getPlayerData()
-            .subscribeOn(Schedulers.newThread())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object : DisposableObserver<List<StatLine>>() {
-
-                override fun onComplete() {
-                    isLoading.set(GONE)
-                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-                }
-
-                override fun onNext(t: List<StatLine>) {
-                    isLoading.set(VISIBLE)
-                    statList.value = t
-                }
-
-                override fun onError(e: Throwable) {
-
-                }
-            })
-    }
+//    fun loadStatsViaRxJava() {
+//        isLoading.set(VISIBLE)
+//        compositeDisposable += playerStatsRepository.getPlayerData()
+//            .subscribeOn(Schedulers.newThread())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribeWith(object : DisposableObserver<List<Player>>() {
+//
+//                override fun onComplete() {
+//                    isLoading.set(GONE)
+//                    TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//                }
+//
+//                override fun onNext(t: List<Player>) {
+//                    isLoading.set(VISIBLE)
+//                    statList.value = t
+//                }
+//
+//                override fun onError(e: Throwable) {
+//
+//                }
+//            })
+//    }
 
     /**
      * This method will be called when this ViewModel is no longer used and will be destroyed.

@@ -1,4 +1,4 @@
-package com.apsoftware.insomniacgoat.model.database.entiy
+package com.apsoftware.insomniacgoat.model.database.entity
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -11,6 +11,6 @@ class ConnectivityManager(private var applicationContext: Context) {
         get() {
             val conManager = applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
             val isConnected = conManager.isConnectedToInternet
-            return isConnected?.let{it} ?: false
+            return isConnected?.let { it } ?: false
         }
 }
