@@ -8,9 +8,14 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.apsoftware.insomniacgoat.R
 import com.apsoftware.insomniacgoat.abstraction_layer.viewmodel.StatsViewModel
+import org.kodein.di.KodeinAware
+import org.kodein.di.android.closestKodein
 
 
-class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClickListener {
+class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClickListener, KodeinAware {
+
+
+    override val kodein by closestKodein()
 
     private lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
     private lateinit var viewModel: StatsViewModel
@@ -39,6 +44,6 @@ class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClick
     }
 
     override fun onItemClick(position: Int) {
-        // TODO pop up a fragment with additional player info
+        // TODO navigate to a fragment with additional player info
     }
 }
