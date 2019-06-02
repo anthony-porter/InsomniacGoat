@@ -12,8 +12,8 @@ class PlayerStatsRecyclerViewAdapter(
 ) : RecyclerView.Adapter<BasicStatViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BasicStatViewHolder {
-        val layoutInflater = LayoutInflater.from(parent.context)
-        val binding = PlayerDataViewHolderBinding.inflate(layoutInflater, parent, false)
+        var layoutInflater = LayoutInflater.from(parent.context)
+        var binding = PlayerDataViewHolderBinding.inflate(layoutInflater, parent, false)
         return BasicStatViewHolder(binding)
     }
 

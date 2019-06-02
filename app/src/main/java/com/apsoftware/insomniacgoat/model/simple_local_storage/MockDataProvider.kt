@@ -20,9 +20,9 @@ class MockDataProvider : StatDataProvider {
     }
 
     fun setupMockStatList(): List<Player> {
-        val playerStats: ArrayList<Player> = ArrayList()
-        val rand = Random(Calendar.getInstance().timeInMillis)
-        val players = arrayOf(
+        var playerStats: ArrayList<Player> = ArrayList()
+        var rand = Random(Calendar.getInstance().timeInMillis)
+        var players = arrayOf(
             arrayOf("LeBron", "James"),
             arrayOf("Michael", "Jordan"),
             arrayOf("Kobe", "Bryant"),

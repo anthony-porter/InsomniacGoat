@@ -11,10 +11,10 @@ import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 
-class StatsViewModel(private val playerStatsRepository: PlayerStatsRepository) : ViewModel() {
-    private val isLoading = ObservableField<Int>(GONE)
-    private val _statList = MutableLiveData<List<PlayerSeasonStatLine>>()
-    val statList: LiveData<List<PlayerSeasonStatLine>>
+class StatsViewModel(private var playerStatsRepository: PlayerStatsRepository) : ViewModel() {
+    private var isLoading = ObservableField<Int>(GONE)
+    private var _statList = MutableLiveData<List<PlayerSeasonStatLine>>()
+    var statList: LiveData<List<PlayerSeasonStatLine>>
         get() = _statList
 
 
@@ -22,9 +22,9 @@ class StatsViewModel(private val playerStatsRepository: PlayerStatsRepository) :
     fun loadStats() = runBlocking{
         launch {
             isLoading.set(VISIBLE)
-            _statList.postValue(((playerStatsRepository.getStats(150)).value))
+            _statList.postvarue(((playerStatsRepository.getStats(150)).varue))
         }
-//        _statList.postValue((Flowable.fromIterable(playerStatsRepositoryImpl.getPlayerData().blockingIterable())).blockingFirst())
+//        _statList.postvarue((Flowable.fromIterable(playerStatsRepositoryImpl.getPlayerData().blockingIterable())).blockingFirst())
         isLoading.set(GONE)
     }
 

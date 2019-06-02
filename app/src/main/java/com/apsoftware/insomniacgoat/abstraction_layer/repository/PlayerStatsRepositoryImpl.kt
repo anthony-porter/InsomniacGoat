@@ -14,10 +14,10 @@ import com.apsoftware.insomniacgoat.providers.NetworkStatusProvider
  *
  * Created by Anthony.Porter
  */
-class PlayerStatsRepositoryImpl(private val playerDao: PlayerDao,
-                                private val playerSeasonStatLineDao: PlayerSeasonStatLineDao,
-                                private val nbaApi: NbaApi,
-                                private val networkStatusProvider: NetworkStatusProvider) : PlayerStatsRepository {
+class PlayerStatsRepositoryImpl(private var playerDao: PlayerDao,
+                                private var playerSeasonStatLineDao: PlayerSeasonStatLineDao,
+                                private var nbaApi: NbaApi,
+                                private var networkStatusProvider: NetworkStatusProvider) : PlayerStatsRepository {
     override suspend fun updateData(data: List<PlayerSeasonStatLine>) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }

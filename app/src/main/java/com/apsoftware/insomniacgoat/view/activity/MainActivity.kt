@@ -15,11 +15,11 @@ import org.kodein.di.android.closestKodein
 class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClickListener, KodeinAware {
 
 
-    override val kodein by closestKodein()
+    override var kodein by closestKodein()
 
     private lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
     private lateinit var viewModel: StatsViewModel
-    private val playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter =
+    private var playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter =
         PlayerStatsRecyclerViewAdapter(arrayListOf(), this)
 
 

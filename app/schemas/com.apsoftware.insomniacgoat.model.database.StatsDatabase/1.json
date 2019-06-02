@@ -256,7 +256,7 @@
       },
       {
         "tableName": "GoatAttributeSet",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `attribute_name` TEXT NOT NULL, `value` INTEGER NOT NULL, `weight` REAL NOT NULL)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `attribute_name` TEXT NOT NULL, `varue` INTEGER NOT NULL, `weight` REAL NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -271,8 +271,8 @@
             "notNull": true
           },
           {
-            "fieldPath": "value",
-            "columnName": "value",
+            "fieldPath": "varue",
+            "columnName": "varue",
             "affinity": "INTEGER",
             "notNull": true
           },
@@ -295,7 +295,7 @@
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"933b8c9af39d48dae9f2c50dfb5c501b\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) varUES(42, \"933b8c9af39d48dae9f2c50dfb5c501b\")"
     ]
   }
 }

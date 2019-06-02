@@ -7,7 +7,7 @@ import com.apsoftware.insomniacgoat.abstraction_layer.repository.PlayerStatsRepo
 /**
  * Created by Anthony.Porter on 2019-05-26.
  */
-class StatsViewModelFactory(private val playerStatsRepository: PlayerStatsRepository) : ViewModelProvider.NewInstanceFactory() {
+class StatsViewModelFactory(private var playerStatsRepository: PlayerStatsRepository) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {

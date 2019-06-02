@@ -15,7 +15,7 @@ import org.kodein.di.generic.singleton
  */
 @Suppress("unused")
 class InsomniacGoatApplication : Application(), KodeinAware {
-    override val kodein = Kodein.lazy {
+    override var kodein = Kodein.lazy {
         import(androidXModule(this@InsomniacGoatApplication))
         bind() from singleton {StatsDatabase(instance())}
         bind() from singleton {instance<StatsDatabase>().playerDao()}
@@ -24,5 +24,6 @@ class InsomniacGoatApplication : Application(), KodeinAware {
 
     override fun onCreate() {
         super.onCreate()
+        // todo initialize kodein
     }
 }
