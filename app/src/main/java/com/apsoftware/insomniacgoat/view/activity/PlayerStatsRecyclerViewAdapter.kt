@@ -4,10 +4,10 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.apsoftware.insomniacgoat.databinding.PlayerDataViewHolderBinding
-import com.apsoftware.insomniacgoat.model.database.entity.Player
+import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 
 class PlayerStatsRecyclerViewAdapter(
-    private var statLines: List<Player>,
+    private var statLines: List<PlayerSeasonStatLine>,
     private var onClickListener: OnClickListener
 ) : RecyclerView.Adapter<BasicStatViewHolder>() {
 
@@ -17,7 +17,7 @@ class PlayerStatsRecyclerViewAdapter(
         return BasicStatViewHolder(binding)
     }
 
-    fun replaceData(statLines: List<Player>) {
+    fun replaceData(statLines: List<PlayerSeasonStatLine>) {
         this.statLines = statLines
         notifyDataSetChanged()
     }

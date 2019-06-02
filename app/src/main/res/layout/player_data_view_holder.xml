@@ -6,7 +6,7 @@
     <data>
         <variable
             name="model"
-            type="com.apsoftware.insomniacgoat.model.database.entity.Player" />
+            type="com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -22,7 +22,6 @@
             android:gravity="center"
             android:paddingLeft="10dp"
             android:paddingRight="10dp"
-            android:text="@{Integer.toString(model.rank)}"
             android:textSize="38sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -33,7 +32,6 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:gravity="bottom"
-            android:text="@{model.firstName + ` ` + model.lastName}"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/view_holder_pts_textview"
@@ -49,7 +47,6 @@
             android:layout_height="0dp"
             android:gravity="top"
             android:padding="2dp"
-            android:text="@{@string/points(model.careerPpg)}"
             app:layout_constraintBottom_toBottomOf="@+id/view_holder_rank_textview"
             app:layout_constraintStart_toEndOf="@+id/view_holder_rank_textview"
             app:layout_constraintTop_toBottomOf="@+id/view_holder_player_name_textview"

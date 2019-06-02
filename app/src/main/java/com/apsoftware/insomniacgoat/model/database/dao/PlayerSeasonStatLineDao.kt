@@ -9,6 +9,7 @@ import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 /**
  * Created by Anthony.Porter on 2019-05-19.
  */
+@Suppress("unused")
 @Dao
 interface PlayerSeasonStatLineDao {
 

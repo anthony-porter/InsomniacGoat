@@ -14,7 +14,7 @@ class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClick
 
     private lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
     private lateinit var viewModel: StatsViewModel
-    private val playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter =
+    private var playerStatsRecyclerViewAdapter: PlayerStatsRecyclerViewAdapter =
         PlayerStatsRecyclerViewAdapter(arrayListOf(), this)
 
 
@@ -39,6 +39,6 @@ class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClick
     }
 
     override fun onItemClick(position: Int) {
-        // TODO pop up a fragment with additional player info
+        // TODO navigate to a fragment with additional player info
     }
 }

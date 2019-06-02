@@ -1,6 +1,5 @@
 package com.apsoftware.insomniacgoat.model.database.entity
 
-import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
@@ -10,14 +9,14 @@ import androidx.room.PrimaryKey
  */
 @Entity
 data class Player(
-    @PrimaryKey val id: Int,
-    @ColumnInfo(name = "first_name") var firstName: String,
-    @ColumnInfo(name = "last_name") var lastName: String,
-    @ColumnInfo(name = "starting_year") val startingYear: Int,
-    @ColumnInfo(name = "final_year") var finalYear: Int,
-    var rank: Int,
-    @ColumnInfo(name = "career_ppg") var careerPpg: Double,
-    @ColumnInfo(name = "career_apg") var careerApg: Double,
-    @ColumnInfo(name = "career_rpg") var careerRpg: Double
+    @PrimaryKey(autoGenerate = false) var id: Int,
+    var first_name: String,
+    var height_feet: Int?,
+    var height_inches: Int?,
+    var last_name: String,
+    var position: String,
+    var team: Team,
+    var weight_pounds: Int?
 )
+
 
