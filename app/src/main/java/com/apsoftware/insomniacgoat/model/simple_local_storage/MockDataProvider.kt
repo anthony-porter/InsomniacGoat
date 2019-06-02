@@ -1,25 +1,27 @@
 package com.apsoftware.insomniacgoat.model.simple_local_storage
 
 import android.os.Handler
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import com.apsoftware.insomniacgoat.model.DataReadyCallback
 import com.apsoftware.insomniacgoat.model.StatDataProvider
 import com.apsoftware.insomniacgoat.model.database.entity.Player
-import io.reactivex.Observable
+import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 import java.util.*
-import java.util.concurrent.TimeUnit
 import kotlin.random.Random
 
+@Suppress("unused", "UNUSED_VARIABLE")
 class MockDataProvider : StatDataProvider {
 
     override fun getStats(dataReadyCallback: DataReadyCallback) {
         Handler().postDelayed({ dataReadyCallback.onDataReady(setupMockStatList()) }, 1500)
     }
 
-    fun getStats(): Observable<List<Player>> {
-        return Observable.just(setupMockStatList()).delay(2, TimeUnit.SECONDS)
+    fun getStats(): LiveData<List<PlayerSeasonStatLine>> {
+        return MutableLiveData() //Observable.just(setupMockStatList()).delay(2, TimeUnit.SECONDS)
     }
 
-    fun setupMockStatList(): List<Player> {
+    private fun setupMockStatList(): List<PlayerSeasonStatLine> {
         var playerStats: ArrayList<Player> = ArrayList()
         var rand = Random(Calendar.getInstance().timeInMillis)
         var players = arrayOf(
@@ -55,16 +57,6 @@ class MockDataProvider : StatDataProvider {
             arrayOf("Chris", "Paul")
         )
 
-        for (i in players.indices) {
-            playerStats.add(
-                Player(
-                    i + 1, players[i][0], players[i][1], 2010, 2019, i + 1,
-                    String.format("%.2f", rand.nextDouble(20.0, 55.0)).toDouble(),
-                    String.format("%.2f", rand.nextDouble(2.5, 33.0)).toDouble(),
-                    String.format("%.2f", rand.nextDouble(2.5, 17.5)).toDouble()
-                )
-            )
-        }
-        return playerStats
+        return ArrayList()
     }
 }

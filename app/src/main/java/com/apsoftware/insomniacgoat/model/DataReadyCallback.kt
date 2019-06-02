@@ -1,7 +1,7 @@
 package com.apsoftware.insomniacgoat.model
 
-import com.apsoftware.insomniacgoat.model.database.entity.Player
+import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 
 interface DataReadyCallback {
-    fun onDataReady(data: List<Player>)
+    fun onDataReady(data: List<PlayerSeasonStatLine>)
 }

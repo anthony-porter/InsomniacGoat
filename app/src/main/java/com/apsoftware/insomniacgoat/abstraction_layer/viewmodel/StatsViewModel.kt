@@ -14,15 +14,13 @@ import kotlinx.coroutines.runBlocking
 class StatsViewModel(private var playerStatsRepository: PlayerStatsRepository) : ViewModel() {
     private var isLoading = ObservableField<Int>(GONE)
     private var _statList = MutableLiveData<List<PlayerSeasonStatLine>>()
-    var statList: LiveData<List<PlayerSeasonStatLine>>
+    val statList: LiveData<List<PlayerSeasonStatLine>>
         get() = _statList
-
-
 
     fun loadStats() = runBlocking{
         launch {
             isLoading.set(VISIBLE)
-            _statList.postvarue(((playerStatsRepository.getStats(150)).varue))
+            _statList.postValue(((playerStatsRepository.getStats(150)).value))
         }
 //        _statList.postvarue((Flowable.fromIterable(playerStatsRepositoryImpl.getPlayerData().blockingIterable())).blockingFirst())
         isLoading.set(GONE)

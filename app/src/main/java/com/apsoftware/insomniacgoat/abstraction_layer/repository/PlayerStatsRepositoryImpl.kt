@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.apsoftware.insomniacgoat.abstraction_layer.repository
 
 import androidx.lifecycle.LiveData

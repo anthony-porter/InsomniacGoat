@@ -1,7 +1,6 @@
 package com.apsoftware.insomniacgoat
 
 import android.app.Application
-import androidx.room.Room
 import com.apsoftware.insomniacgoat.model.database.StatsDatabase
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
@@ -22,8 +21,4 @@ class InsomniacGoatApplication : Application(), KodeinAware {
         bind() from singleton {instance<StatsDatabase>().playerSeasonStatLineDao()}
     }
 
-    override fun onCreate() {
-        super.onCreate()
-        // todo initialize kodein
-    }
 }

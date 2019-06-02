@@ -8,14 +8,9 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.apsoftware.insomniacgoat.R
 import com.apsoftware.insomniacgoat.abstraction_layer.viewmodel.StatsViewModel
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.closestKodein
 
 
-class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClickListener, KodeinAware {
-
-
-    override var kodein by closestKodein()
+class MainActivity : AppCompatActivity(), PlayerStatsRecyclerViewAdapter.OnClickListener {
 
     private lateinit var binding: com.apsoftware.insomniacgoat.databinding.ActivityMainBinding
     private lateinit var viewModel: StatsViewModel

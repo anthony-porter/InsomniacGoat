@@ -1,10 +1,12 @@
 package com.apsoftware.insomniacgoat.model.database.entity
 
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 /**
  * Created by Anthony.Porter on 2019-06-01.
  */
+@Entity
 data class PlayerGameStatLine(
     @PrimaryKey(autoGenerate = false) val id: Int,
     val game: Game,
@@ -31,6 +33,7 @@ data class PlayerGameStatLine(
     val turnover: Int
 )
 
+@Suppress("unused")
 data class PlayerGameStatLineMetaData(
     var current_page: Int,
     var next_page: Int,

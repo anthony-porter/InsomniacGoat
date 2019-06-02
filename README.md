@@ -29,3 +29,9 @@ The motivation of this project is to be exposed to modern android frameworks, id
 ##### Running ideas, questions, spikes, etc.
 * Can an HttpInterceptor be used to set the response for data mocking purposes?
   * Could said interceptor be used to read data from a file. what is the effort level?
+  
+##### Insomniac GOAT glossary
+  * GOAT seasons- years with goat level statistics and wins. Defined by user
+  * Ideal GOAT season count- number of goat level seasons to consider. 
+  * GOAT season score- comparison of a season to a GOAT season
+  * Big 5 score- combined weighted score of points, assists, rebounds, blocks, and steals
