@@ -10,6 +10,8 @@ import org.kodein.di.generic.instance
 import org.kodein.di.generic.singleton
 
 /**
+ * This is where most of the Kodein set up lives.
+ *
  * Created by Anthony.Porter on 2019-05-19.
  */
 @Suppress("unused")

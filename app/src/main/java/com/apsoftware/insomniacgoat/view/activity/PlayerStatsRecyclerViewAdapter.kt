@@ -21,12 +21,6 @@ class PlayerStatsRecyclerViewAdapter(
         this.statLines = statLines
         notifyDataSetChanged()
     }
-
-    /**
-     * Returns the total number of items in the data set held by the adapter.
-     *
-     * @return The total number of items in this adapter.
-     */
     override fun getItemCount(): Int = statLines.size
 
     override fun onBindViewHolder(holder: BasicStatViewHolder, position: Int) =

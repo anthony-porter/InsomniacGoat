@@ -8,6 +8,11 @@ import android.net.ConnectivityManager
  */
 @Suppress("unused")
 class NetworkStatusProviderImpl(private var context: Context): NetworkStatusProvider {
+
+    /**
+     * Gets the current connectivity
+     * @return current internet connectivity state
+     */
     override fun isOnline(): Boolean {
         val connectivityManager = context.applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE)
                 as ConnectivityManager
