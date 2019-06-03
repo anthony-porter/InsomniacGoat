@@ -1,21 +1,14 @@
 package com.apsoftware.insomniacgoat.model.simple_local_storage
 
-import android.os.Handler
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.apsoftware.insomniacgoat.model.DataReadyCallback
-import com.apsoftware.insomniacgoat.model.StatDataProvider
 import com.apsoftware.insomniacgoat.model.database.entity.Player
 import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 import java.util.*
 import kotlin.random.Random
 
 @Suppress("unused", "UNUSED_VARIABLE")
-class MockDataProvider : StatDataProvider {
-
-    override fun getStats(dataReadyCallback: DataReadyCallback) {
-        Handler().postDelayed({ dataReadyCallback.onDataReady(setupMockStatList()) }, 1500)
-    }
+class MockDataProvider  {
 
     fun getStats(): LiveData<List<PlayerSeasonStatLine>> {
         return MutableLiveData() //Observable.just(setupMockStatList()).delay(2, TimeUnit.SECONDS)
