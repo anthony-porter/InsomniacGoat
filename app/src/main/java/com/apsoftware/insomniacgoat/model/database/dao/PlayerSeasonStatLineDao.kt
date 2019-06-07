@@ -1,9 +1,6 @@
 package com.apsoftware.insomniacgoat.model.database.dao
 
-import androidx.room.Dao
-import androidx.room.Delete
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 
 /**
@@ -13,7 +10,9 @@ import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
 @Dao
 interface PlayerSeasonStatLineDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(playerSeasonStatLines: List<PlayerSeasonStatLine>)
+
     fun insert(playerSeasonStatLine: PlayerSeasonStatLine)
 
     @Query("SELECT * FROM playerSeasonStatLine WHERE player_id = :playerId")

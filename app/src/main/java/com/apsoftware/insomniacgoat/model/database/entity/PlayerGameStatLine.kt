@@ -2,6 +2,13 @@ package com.apsoftware.insomniacgoat.model.database.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.BufferedReader
+import com.apsoftware.insomniacgoat.model.database.entity.PlayerSeasonStatLine
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import java.lang.reflect.Type
+import kotlin.collections.ArrayList
 
 /**
  * Created by Anthony.Porter on 2019-06-01.
@@ -23,7 +30,7 @@ data class PlayerGameStatLine(
     val ft_pct: Double,
     val fta: Int,
     val ftm: Int,
-    val min: String,
+    val min: Int,
     val oreb: Int,
     val pf: Int,
     val pts: Int,

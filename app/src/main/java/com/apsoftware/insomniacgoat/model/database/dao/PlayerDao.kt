@@ -13,6 +13,9 @@ interface PlayerDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(player: Player)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insert(players: List<Player>)
+
     @Query("SELECT * FROM player WHERE id = :id")
     fun getPlayerById(id: Int): Player
 

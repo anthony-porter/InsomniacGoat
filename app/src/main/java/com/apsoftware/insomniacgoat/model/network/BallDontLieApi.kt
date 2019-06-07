@@ -12,7 +12,7 @@ import retrofit2.http.Query
  * Created by Anthony.Porter on 2019-05-19.
  */
 
-interface NbaApi {
+interface BallDontLieApi {
 
     @GET("players")
     fun getPlayer(
@@ -54,13 +54,13 @@ interface NbaApi {
 
     companion object {
         private const val BASE_URL: String = "https://www.balldontlie.io/api/v1/"
-        operator fun invoke(): NbaApi {
+        operator fun invoke(): BallDontLieApi {
             return Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addCallAdapterFactory(CoroutineCallAdapterFactory())
                 .addConverterFactory(MoshiConverterFactory.create())
                 .build()
-                .create(NbaApi::class.java)
+                .create(BallDontLieApi::class.java)
         }
     }
 

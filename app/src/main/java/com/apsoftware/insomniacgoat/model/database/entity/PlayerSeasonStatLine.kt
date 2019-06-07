@@ -3,6 +3,10 @@ package com.apsoftware.insomniacgoat.model.database.entity
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonAdapter
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
+import java.io.BufferedReader
 
 
 /**
@@ -31,7 +35,7 @@ data class PlayerSeasonStatLine(
     var fta: Double,
     var ftm: Double,
     var games_played: Int,
-    var min: String,
+    var min: Double,
     var oreb: Double,
     var pf: Double,
     var player_id: Int,
@@ -40,4 +44,20 @@ data class PlayerSeasonStatLine(
     var season: Int,
     var stl: Double,
     var turnover: Double
-)
+) {
+
+    companion object {
+        fun getDataFromCsv(): List<PlayerSeasonStatLine> {
+            val reader: BufferedReader = this::class.java.getResourceAsStream("historicalPlayerStats.csv")?.let { it ->
+                it.bufferedReader()
+                    .let { it }
+            } ?: return ArrayList()
+            val jsonFileAsString = reader.readText()
+            val moshi = Moshi.Builder().build()
+            val type = Types.newParameterizedType(List::class.java, PlayerSeasonStatLine::class.java)
+            val jsonAdapter: JsonAdapter<List<PlayerSeasonStatLine>> = moshi.adapter(type)
+            return jsonAdapter.fromJson(jsonFileAsString)?.let{it} ?: ArrayList()
+        }
+    }
+
+}
